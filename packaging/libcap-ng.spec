@@ -18,7 +18,6 @@ BuildRequires:  kernel-headers >= 2.6.11
 BuildRequires:  libattr-devel
 BuildRequires:  pkg-config
 BuildRequires:  python-base
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 %description
 Libcap-ng is a library that makes using posix capabilities easier
