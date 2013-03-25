@@ -26,7 +26,7 @@ Libcap-ng is a library that makes using posix capabilities easier
 
 License:        LGPL-2.1+
 Summary:        Header files for libcap-ng library
-Group:          Development/Libraries/C and C++
+Group:          Development/Libraries
 Requires:       %{name} = %{version}
 Requires:       kernel-headers >= 2.6.11
 Requires:       pkgconfig
@@ -62,7 +62,7 @@ make %{?_smp_mflags}
 
 %files
 %defattr(-,root,root,-)
-%doc COPYING.LIB
+%license COPYING.LIB
 %attr(0755,root,root) %{_libdir}/%{rname}.so.%{soname}
 %attr(0755,root,root) %{_libdir}/%{rname}.so.%{soname}.*
 
@@ -76,7 +76,7 @@ make %{?_smp_mflags}
 
 %files utils
 %defattr(-,root,root,-)
-%doc COPYING
+%license COPYING
 %attr(0755,root,root) %{_bindir}/captest
 %attr(0755,root,root) %{_bindir}/filecap
 %attr(0755,root,root) %{_bindir}/netcap
