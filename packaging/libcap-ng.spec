@@ -14,6 +14,7 @@ Group:          System/Libraries
 Source:         %{name}-%{version}.tar.bz2
 Source2:        baselibs.conf
 Source99:       libcap-ng.rpmlintrc
+Source1001: 	libcap-ng.manifest
 BuildRequires:  kernel-headers >= 2.6.11
 BuildRequires:  libattr-devel
 BuildRequires:  pkg-config
@@ -48,6 +49,7 @@ lets you set the file system based capabilities.
 
 %prep
 %setup -q -n %{rname}-%{version}
+cp %{SOURCE1001} .
 
 %build
 %configure --disable-static --with-pic --with-python=no
@@ -61,12 +63,14 @@ make %{?_smp_mflags}
 %postun  -p /sbin/ldconfig
 
 %files
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %license COPYING.LIB
 %attr(0755,root,root) %{_libdir}/%{rname}.so.%{soname}
 %attr(0755,root,root) %{_libdir}/%{rname}.so.%{soname}.*
 
 %files devel
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %attr(0644,root,root) %{_mandir}/man3/*.3%{ext_man}
 %attr(0644,root,root) %{_includedir}/cap-ng.h
@@ -75,6 +79,7 @@ make %{?_smp_mflags}
 %{_libdir}/pkgconfig/%{rname}.pc
 
 %files utils
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %license COPYING
 %attr(0755,root,root) %{_bindir}/captest
